@@ -271,7 +271,6 @@ void proccesDmaData(const uint8_t* sign, uint16_t len)
 				count_1++;
 				if(count_1 == 6){		//manual
 					state = 2;
-
 					count_1 = 0;
 				}
 			}
@@ -280,7 +279,6 @@ void proccesDmaData(const uint8_t* sign, uint16_t len)
 				count_1++;
 				if(count_1 == 4){		//auto
 					state = 1;
-
 					count_1 = 0;
 				}
 			}
