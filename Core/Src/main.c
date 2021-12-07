@@ -76,7 +76,7 @@ int dollar = 0;
 char state_manual[6] = "manual";
 char state_auto[4] = "auto";
 char pwm_char[3] = "PWM";
-extern int state = 0;						//Ziadny stav 0, Auto = 1, Man = 2
+extern int state = 0;						//Počiatočný stav 0, Auto = 1, Man = 2
 
 int pwm = 0;
 
@@ -226,17 +226,10 @@ void print(){
 	LL_mDelay(50);
 
 	if((state == 0) || (state == 1)){
-		//stav = '\0';
-		//char stav[7] = " auto";
-		//stav = " auto";
-		//sprintf(stav, "%s", " auto");
 		strcat(s5, " auto");
 	}
 	else if (state == 2){
-		//stav = '\0';
-		//stav = ' manual";
 		strcat(s5, " manual");
-		//sprintf(stav, "%s", " manual");
 	}
 
 	strcat(s5, stav);
@@ -279,20 +272,11 @@ void proccesDmaData(const uint8_t* sign, uint16_t len)
 				letters.small_letter = letters.small_letter + male;
 
 				dollar = 0;
-				//LL_mDelay(50);
 			}
 		}
 
 		if(start == 1){
 
-			/*
-			if(*(sign+pom) >= 'a' && *(sign+pom) <= 'z'){
-				male = male+1;
-			}
-			if(*(sign+pom) >= 'A' && *(sign+pom) <= 'Z'){
-				velke = velke + 1;
-			}
-			*/
 			if(*(sign+pom) == state_manual[count_1]){
 				count_1++;
 				if(count_1 == 6){		//manual
@@ -361,16 +345,7 @@ void proccesDmaData(const uint8_t* sign, uint16_t len)
 				state = 0;
 			}
 		}
-/*
-		if(*(sign+pom) == '$'){
-			start = 0;
 
-
-			letters.capital_letter = letters.capital_letter + velke;
-			letters.small_letter = letters.small_letter + male;
-
-		}
-*/
 		if(count == 35 && *(sign+pom) != '$'){
 			start = 0;
 			male = 0;
