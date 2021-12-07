@@ -251,24 +251,7 @@ void DMA1_Channel7_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-	/*
-		if(LL_TIM_IsActiveFlag_UPDATE(TIM2))
-		{
-			if(LL_GPIO_IsOutputPinSet(GPIOB, LL_GPIO_PIN_13))
-			{
-				LL_GPIO_ResetOutputPin(GPIOB, LL_GPIO_PIN_13);
-			}
-			else
-			{
-				LL_GPIO_SetOutputPin(GPIOB, LL_GPIO_PIN_13);
-			}
-
-			ADC_start_conversion();
-			voltage = ADC_convertedValue2float();
-		}
-
-		LL_TIM_ClearFlag_UPDATE(TIM2);
-		*/
+	
 	if(LL_TIM_IsActiveFlag_UPDATE(TIM2)){
 		if((state == 1) || (state == 0)){
 			if(prev_step < step){
